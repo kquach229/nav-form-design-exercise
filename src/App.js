@@ -34,11 +34,12 @@ const useStyles = makeStyles({
     fontSize: '28px',
     lineHeight: '37.32px',
     textAlign: 'left',
+        fontFamily: 'Playfair Display, serif'
   },
   mainParagraph: {
     fontWeight: 400,
-    fontSize: '14px',
-    lineHeight: '21px',
+    fontSize: '16px',
+    lineHeight: '24px',
     textAlign: 'left',
   },
   sectionHeader: {
@@ -47,6 +48,7 @@ const useStyles = makeStyles({
     lineHeight: '26.66px',
     textAlign: 'left',
     marginTop: '64px',
+    fontFamily: 'Playfair Display, serif'
   },
   textfieldItem: {
     display: 'flex',

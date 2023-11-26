@@ -318,6 +318,10 @@ const FormComponent = ({ isMobile, isTablet }) => {
             backgroundColor: '#052461',
             height: '51px',
             marginTop: '25px',
+            fontWeight: 700,
+            fontSize: '16px',
+            lineHeight: '19.2px',
+            textTransform: 'none',
           }}>
           Submit
         </Button>
@@ -487,6 +491,10 @@ const FormComponent = ({ isMobile, isTablet }) => {
               height: '51px',
               marginTop: '25px',
               width: '255px',
+              fontWeight: 700,
+              fontSize: '16px',
+              lineHeight: '19.2px',
+              textTransform: 'none',
             }}>
             Submit
           </Button>
@@ -653,6 +661,10 @@ const FormComponent = ({ isMobile, isTablet }) => {
             height: '51px',
             marginTop: '25px',
             width: '255px',
+            fontWeight: 700,
+            fontSize: '16px',
+            lineHeight: '19.2px',
+            textTransform: 'none',
           }}>
           Submit
         </Button>
