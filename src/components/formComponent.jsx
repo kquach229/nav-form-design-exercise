@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     width: '98%%', // Set width as needed
-
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -42,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: '#5B616E !important',
     borderStyle: 'solid',
     padding: '4px',
+    height: '48px',
     [theme.breakpoints.up('sm')]: {
       width: '100%',
     },
@@ -64,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
   },
   rowedInput: {
     width: '100%',
+    borderWidth: '1px',
+    borderColor: '#5B616E !important',
+    borderStyle: 'solid',
   },
   rowedInputItem: {
     margin: '25px 0',
@@ -178,8 +181,19 @@ const FormComponent = ({ isMobile, isTablet }) => {
       <div className={classes.root}>
         {snackbar()}
         <div className={classes.inputItem}>
-          <InputLabel classes={{ root: classes.label }}>Text</InputLabel>
+          <InputLabel classes={{ root: classes.label }}>Text Field </InputLabel>
           <TextField
+            placeholder='Text'
+            sx={{
+              input: {
+                '&::placeholder': {
+                  // <----- Add this.
+                  color: '#5B616E',
+                  opacity: 1,
+                },
+              },
+              label: { color: 'blue' },
+            }}
             InputProps={{
               classes: {
                 root: classes.input,
@@ -197,6 +211,17 @@ const FormComponent = ({ isMobile, isTablet }) => {
         <div className={classes.inputItem}>
           <InputLabel classes={{ root: classes.label }}>Oops</InputLabel>
           <TextField
+            placeholder='Text'
+            sx={{
+              input: {
+                '&::placeholder': {
+                  // <----- Add this.
+                  color: '#5B616E',
+                  opacity: 1,
+                },
+              },
+              label: { color: 'blue' },
+            }}
             InputProps={{
               classes: {
                 root: classes.input,
@@ -210,14 +235,13 @@ const FormComponent = ({ isMobile, isTablet }) => {
             Dropdown Select
           </InputLabel>
           <Select
+            style={{ border: '1px solid #5B616E' }}
+            value={selectedOption}
             onChange={handleChange}
             displayEmpty // This allows an empty display value
             renderValue={(value) =>
-              value === '' ? 'Select an option' : value
+              selectedOption === '' ? 'Select an option' : selectedOption
             }>
-            <MenuItem value='' disabled>
-              Select an option
-            </MenuItem>
             <MenuItem value='First option'>First option</MenuItem>
             <MenuItem value='Second option'>Second option</MenuItem>
             <MenuItem value='Third option'>Third option</MenuItem>
@@ -231,6 +255,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
           <Select
             labelId='mutiple-select-label'
             onChange={handleSelections}
+            style={{ border: '1px solid #5B616E' }}
             value={selectedItems}
             displayEmpty
             renderValue={(value) =>
@@ -334,8 +359,19 @@ const FormComponent = ({ isMobile, isTablet }) => {
       <div className={classes.root}>
         {snackbar()}
         <div className={classes.inputItem}>
-          <InputLabel classes={{ root: classes.label }}>Text</InputLabel>
+          <InputLabel classes={{ root: classes.label }}>Text Field </InputLabel>
           <TextField
+            placeholder='Text'
+            sx={{
+              input: {
+                '&::placeholder': {
+                  // <----- Add this.
+                  color: '#5B616E',
+                  opacity: 1,
+                },
+              },
+              label: { color: 'blue' },
+            }}
             InputProps={{
               classes: {
                 root: classes.input,
@@ -345,11 +381,11 @@ const FormComponent = ({ isMobile, isTablet }) => {
           />
         </div>
         <div className={classes.inputRow}>
-          <div className={classes.rowedInputItem} style={{ width: '36vw' }}>
+          <div className={classes.rowedInputItem} style={{ width: '37vw' }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <InputLabel classes={{ root: classes.label }}>Date</InputLabel>
               <DatePicker
-                style={{ width: '36vw' }}
+                style={{ width: '37vw' }}
                 className={classes.rowedInput}
                 label='mm/dd/yyyy'
               />
@@ -358,7 +394,18 @@ const FormComponent = ({ isMobile, isTablet }) => {
           <div className={classes.rowedInputItem}>
             <InputLabel classes={{ root: classes.label }}>Oops</InputLabel>
             <TextField
-              style={{ width: '36vw' }}
+              placeholder='Text'
+              sx={{
+                input: {
+                  '&::placeholder': {
+                    // <----- Add this.
+                    color: '#5B616E',
+                    opacity: 1,
+                  },
+                },
+                label: { color: 'blue' },
+              }}
+              style={{ width: '37vw' }}
               InputProps={{
                 classes: {
                   root: classes.rowedInput,
@@ -377,15 +424,12 @@ const FormComponent = ({ isMobile, isTablet }) => {
               Dropdown Select
             </InputLabel>
             <Select
-              style={{ width: '36vw' }}
+              style={{ width: '37vw', border: '1px solid #5B616E' }}
               onChange={handleChange}
-              displayEmpty // This allows an empty display value
+              displayEmpty
               renderValue={(value) =>
-                value === '' ? 'Select an option' : value
+                selectedOption === '' ? 'Select an option' : selectedOption
               }>
-              <MenuItem value='' disabled>
-                Select an option
-              </MenuItem>
               <MenuItem value='First option'>First option</MenuItem>
               <MenuItem value='Second option'>Second option</MenuItem>
               <MenuItem value='Third option'>Third option</MenuItem>
@@ -399,7 +443,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
               Multi-select
             </InputLabel>
             <Select
-              style={{ width: '36vw' }}
+              style={{ width: '37vw', border: '1px solid #5B616E' }}
               labelId='mutiple-select-label'
               onChange={handleSelections}
               value={selectedItems}
@@ -507,8 +551,19 @@ const FormComponent = ({ isMobile, isTablet }) => {
     <div className={classes.root}>
       {snackbar()}
       <div className={classes.inputItem}>
-        <InputLabel classes={{ root: classes.label }}>Text</InputLabel>
+        <InputLabel classes={{ root: classes.label }}>Text Field </InputLabel>
         <TextField
+          placeholder='Text'
+          sx={{
+            input: {
+              '&::placeholder': {
+                // <----- Add this.
+                color: '#5B616E',
+                opacity: 1,
+              },
+            },
+            label: { color: 'blue' },
+          }}
           InputProps={{
             classes: {
               root: classes.input,
@@ -518,11 +573,11 @@ const FormComponent = ({ isMobile, isTablet }) => {
         />
       </div>
       <div className={classes.inputRow}>
-        <div className={classes.rowedInputItem} style={{ width: '37vw' }}>
+        <div className={classes.rowedInputItem} style={{ width: '38vw' }}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <InputLabel classes={{ root: classes.label }}>Date</InputLabel>
             <DatePicker
-              style={{ width: '37vw' }}
+              style={{ width: '38vw' }}
               className={classes.rowedInput}
               label='mm/dd/yyyy'
             />
@@ -531,7 +586,18 @@ const FormComponent = ({ isMobile, isTablet }) => {
         <div className={classes.rowedInputItem}>
           <InputLabel classes={{ root: classes.label }}>Oops</InputLabel>
           <TextField
-            style={{ width: '37vw' }}
+            sx={{
+              input: {
+                '&::placeholder': {
+                  // <----- Add this.
+                  color: '#5B616E',
+                  opacity: 1,
+                },
+              },
+              label: { color: 'blue' },
+            }}
+            placeholder='Text'
+            style={{ width: '38vw' }}
             InputProps={{
               classes: {
                 root: classes.rowedInput,
@@ -548,15 +614,12 @@ const FormComponent = ({ isMobile, isTablet }) => {
             Dropdown Select
           </InputLabel>
           <Select
-            style={{ width: '37vw' }}
+            style={{ width: '38vw', border: '1px solid #5B616E' }}
             onChange={handleChange}
             displayEmpty // This allows an empty display value
             renderValue={(value) =>
-              value === '' ? 'Select an option' : value
+              selectedOption === '' ? 'Select an option' : selectedOption
             }>
-            <MenuItem value='' disabled>
-              Select an option
-            </MenuItem>
             <MenuItem value='First option'>First option</MenuItem>
             <MenuItem value='Second option'>Second option</MenuItem>
             <MenuItem value='Third option'>Third option</MenuItem>
@@ -568,7 +631,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
             Multi-select
           </InputLabel>
           <Select
-            style={{ width: '37vw' }}
+            style={{ width: '38vw', border: '1px solid #5B616E' }}
             labelId='mutiple-select-label'
             onChange={handleSelections}
             value={selectedItems}
