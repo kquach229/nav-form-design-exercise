@@ -381,11 +381,11 @@ const FormComponent = ({ isMobile, isTablet }) => {
           />
         </div>
         <div className={classes.inputRow}>
-          <div className={classes.rowedInputItem} style={{ width: '37vw' }}>
+          <div className={classes.rowedInputItem} style={{ width: '30vw' }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <InputLabel classes={{ root: classes.label }}>Date</InputLabel>
               <DatePicker
-                style={{ width: '37vw' }}
+                style={{ width: '30vw' }}
                 className={classes.rowedInput}
                 label='mm/dd/yyyy'
               />
@@ -405,7 +405,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
                 },
                 label: { color: 'blue' },
               }}
-              style={{ width: '37vw' }}
+              style={{ width: '30vw' }}
               InputProps={{
                 classes: {
                   root: classes.rowedInput,
@@ -424,7 +424,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
               Dropdown Select
             </InputLabel>
             <Select
-              style={{ width: '37vw', border: '1px solid #5B616E' }}
+              style={{ width: '30vw', border: '1px solid #5B616E' }}
               onChange={handleChange}
               displayEmpty
               renderValue={(value) =>
@@ -443,7 +443,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
               Multi-select
             </InputLabel>
             <Select
-              style={{ width: '37vw', border: '1px solid #5B616E' }}
+              style={{ width: '30vw', border: '1px solid #5B616E' }}
               labelId='mutiple-select-label'
               onChange={handleSelections}
               value={selectedItems}
@@ -573,11 +573,11 @@ const FormComponent = ({ isMobile, isTablet }) => {
         />
       </div>
       <div className={classes.inputRow}>
-        <div className={classes.rowedInputItem} style={{ width: '38vw' }}>
+        <div className={classes.rowedInputItem} style={{ width: '36vw' }}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <InputLabel classes={{ root: classes.label }}>Date</InputLabel>
             <DatePicker
-              style={{ width: '38vw' }}
+              style={{ width: '36vw' }}
               className={classes.rowedInput}
               label='mm/dd/yyyy'
             />
@@ -597,7 +597,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
               label: { color: 'blue' },
             }}
             placeholder='Text'
-            style={{ width: '38vw' }}
+            style={{ width: '36vw' }}
             InputProps={{
               classes: {
                 root: classes.rowedInput,
@@ -614,7 +614,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
             Dropdown Select
           </InputLabel>
           <Select
-            style={{ width: '38vw', border: '1px solid #5B616E' }}
+            style={{ width: '36vw', border: '1px solid #5B616E' }}
             onChange={handleChange}
             displayEmpty // This allows an empty display value
             renderValue={(value) =>
@@ -631,7 +631,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
             Multi-select
           </InputLabel>
           <Select
-            style={{ width: '38vw', border: '1px solid #5B616E' }}
+            style={{ width: '36vw', border: '1px solid #5B616E' }}
             labelId='mutiple-select-label'
             onChange={handleSelections}
             value={selectedItems}

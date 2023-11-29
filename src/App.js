@@ -54,6 +54,11 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
+  },
+  formContainer: {
+    backgroundColor: 'rgb(246,246,250, 0.2)',
+    padding: '0.001rem 1.5rem 2rem 1.5rem', 
+    boxShadow: "0px 1px 1px 0px #80808061, 0px 2px 2px 0px #80808054, 0px 5px 3px 0px #80808030,  0px 8px 3px 0px #8080800F, 0px 13px 4px 0px #80808003"
   }
 });
 
@@ -75,7 +80,7 @@ function App() {
   };
 
 
-    let theme = createTheme();
+  let theme = createTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
@@ -92,6 +97,7 @@ function App() {
           mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis
           tellus.
         </p>
+        <div className={classes.formContainer}>
         <div>
           <h3 className={classes.sectionHeader}>Section Header</h3>
           <Divider />
@@ -101,9 +107,13 @@ function App() {
           isTablet={isTablet} 
           isDesktop={isDesktop} />
       </div>
+      </div>
     </div>
     </ThemeProvider>
   );
 }
 
 export default App;
+
+
+
