@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     top: 0,
     width: '100%',
     zIndex: 1100,
-    background: '#36097F',
+    background: '#36097F !important',
   },
   drawerContainer: {
     color: '#fff',
