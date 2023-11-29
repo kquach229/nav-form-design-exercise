@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   divider: {
     background: '#fff',
     opacity: '20%',
-    width: '98%',
+    width: '90%',
     margin: '10px auto',
   },
   accountProfileTexts: {

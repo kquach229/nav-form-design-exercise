@@ -1,5 +1,11 @@
-import React from 'react';
-import { AppBar, Avatar, Drawer } from '@mui/material';
+import React, { useState } from 'react';
+import {
+  AppBar,
+  Avatar,
+  Drawer,
+  InputAdornment,
+  TextField,
+} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@emotion/react';
@@ -13,6 +19,7 @@ const useStyles = makeStyles({
     height: '76px',
     background: 'linear-gradient(to right, #272847 5%, #36097F)',
     padding: '16px',
+    width: '100%',
   },
   logo: {
     width: '44px',
@@ -90,11 +97,19 @@ const useStyles = makeStyles({
     width: '42px',
     cursor: 'pointer',
   },
+  searchbar: {
+    background: '#FFFFFF',
+    borderRadius: '100px',
+    border: '1px solid #E6E8EC',
+    width: '200px',
+    height: '50px',
+  },
 });
 
 const Nav = ({ toggleDrawer, open }) => {
   const classes = useStyles();
   const theme = useTheme();
+  const [showSearchbar, setShowSearchbar] = useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
 
@@ -138,16 +153,16 @@ const Nav = ({ toggleDrawer, open }) => {
   }
 
   if (isTablet) {
-    const drawerWidth = 100;
+    const tabletDrawerWidth = 100;
     return (
       <div>
         <header>
           <Drawer
             sx={{
-              width: drawerWidth,
+              width: tabletDrawerWidth,
               flexShrink: 0,
               '& .MuiDrawer-paper': {
-                width: drawerWidth,
+                width: tabletDrawerWidth,
                 boxSizing: 'border-box',
               },
             }}
@@ -180,12 +195,41 @@ const Nav = ({ toggleDrawer, open }) => {
               alt='Menu'
             />
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img
-                className={classes.desktopIcon}
-                src={'images/search.svg'}
-                alt='Logo'
+              {showSearchbar ? (
+                <TextField
+                  sx={{
+                    '& fieldset': { border: 'none' },
+                  }}
+                  placeholder='Search'
+                  className={classes.searchbar}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position='start'>
+                        <img
+                          style={{ cursor: 'pointer' }}
+                          onClick={() =>
+                            setShowSearchbar((prevState) => !prevState)
+                          }
+                          src={'images/search.svg'}
+                          alt='search'
+                        />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              ) : (
+                <img
+                  onClick={() => setShowSearchbar((prevState) => !prevState)}
+                  className={classes.desktopIcon}
+                  src={'images/search.svg'}
+                  alt='search'
+                />
+              )}
+
+              <Avatar
+                style={{ marginLeft: showSearchbar ? '25px' : 0 }}
+                classes={{ root: classes.desktopAvatar }}
               />
-              <Avatar classes={{ root: classes.desktopAvatar }} />
             </div>
           </div>
         </AppBar>

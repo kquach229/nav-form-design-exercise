@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     borderStyle: 'solid',
     padding: '4px',
     height: '48px',
+
     [theme.breakpoints.up('sm')]: {
       width: '100%',
     },
@@ -205,7 +206,15 @@ const FormComponent = ({ isMobile, isTablet }) => {
         <div className={classes.inputItem}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <InputLabel classes={{ root: classes.label }}>Date</InputLabel>
-            <DatePicker className={classes.input} label='mm/dd/yyyy' />
+            <DatePicker
+              slotProps={{
+                textField: {
+                  variant: 'outlined',
+                },
+              }}
+              className={classes.input}
+              label='mm/dd/yyyy'
+            />
           </LocalizationProvider>
         </div>
         <div className={classes.inputItem}>
