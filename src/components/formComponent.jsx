@@ -94,18 +94,32 @@ const useStyles = makeStyles((theme) => ({
 
 const FormComponent = ({ isMobile, isTablet }) => {
   const classes = useStyles();
+
+  // multi-dropdown state that defaults to an empty array
   const [selectedItems, setSelectedItems] = useState([]);
+
+  // single option dropdown state
   const [selectedOption, setSelectedOption] = useState('');
+
+  // snackbar state - whether or not to show
   const [showSnackbar, setShowSnackbar] = useState(false);
 
+  // snackbar handler
   const handleSnackbar = () => {
-    setShowSnackbar(!showSnackbar);
+    setShowSnackbar(true);
+
+    //remove snackbar after 3000 milliseconds
+    setTimeout(() => {
+      setShowSnackbar(false);
+    }, [3000]);
   };
 
+  // single dropdown handler
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
+  // snackbar in it's own component
   const snackbar = () => {
     return (
       <Snackbar
@@ -147,6 +161,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
                 <img
                   className={classes.successIcon}
                   src='/images/successIcon.svg'
+                  alt='success'
                 />
                 <span style={{ fontSize: '14px' }}>Submit success</span>
               </div>
@@ -163,6 +178,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
     );
   };
 
+  // options for mult-select dropdown.
   const options = [
     'Multi-select 1',
     'Multi-select 2',
@@ -170,6 +186,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
     'Multi-select 4',
   ];
 
+  // handler for multi-select dropdown
   const handleSelections = (event) => {
     const { value } = event.target;
     setSelectedItems((prevSelectedItems) => {
@@ -181,6 +198,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
     });
   };
 
+  // mobile
   if (isMobile) {
     return (
       <div className={classes.root}>
@@ -367,6 +385,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
     );
   }
 
+  // tablet
   if (isTablet) {
     return (
       <div className={classes.root}>
@@ -560,6 +579,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
     );
   }
 
+  // desktop
   return (
     <div className={classes.root}>
       {snackbar()}
