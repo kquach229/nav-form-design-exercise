@@ -1,8 +1,6 @@
 import { Avatar, Divider, List, ListItem, ListItemButton } from '@mui/material';
 import React from 'react';
 import { makeStyles } from '@mui/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@emotion/react';
 
 const useStyles = makeStyles({
   navIcon: {
@@ -47,13 +45,9 @@ const useStyles = makeStyles({
   },
 });
 
-const DrawerList = () => {
+const DrawerList = ({ isMobile, isTablet }) => {
   const classes = useStyles();
-
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
-
+  // mobile
   if (isMobile) {
     return (
       <List>
@@ -61,7 +55,9 @@ const DrawerList = () => {
           <ListItem>
             <img
               className={classes.navIcon}
-              src={'images/tdesign_home.svg'}></img>
+              src={'images/tdesign_home.svg'}
+              alt='home'
+            />
             Home
           </ListItem>
         </ListItemButton>
@@ -69,7 +65,9 @@ const DrawerList = () => {
           <ListItem>
             <img
               className={classes.navIcon}
-              src={'images/icon-park-outline_browser.svg'}></img>
+              src={'images/icon-park-outline_browser.svg'}
+              alt='home outline'
+            />
             Navigation Item 1
           </ListItem>
         </ListItemButton>
@@ -77,7 +75,9 @@ const DrawerList = () => {
           <ListItem>
             <img
               className={classes.navIcon}
-              src={'images/icon-park-outline_brightness.svg'}></img>
+              src={'images/icon-park-outline_brightness.svg'}
+              alt='nav item 2'
+            />
             Nav Item 2
           </ListItem>
         </ListItemButton>
@@ -93,14 +93,11 @@ const DrawerList = () => {
             </div>
           </ListItem>
         </ListItemButton>
-        {/* 
-      <div className={classes.divider}>
-        <Divider classes={{ root: classes.divider }} />
-      </div> */}
       </List>
     );
   }
 
+  // tablet
   if (isTablet) {
     return (
       <List classes={{ root: classes.tabletList }}>
@@ -118,43 +115,47 @@ const DrawerList = () => {
             <ListItem>
               <img
                 className={classes.navIcon}
-                src={'images/tdesign_home.svg'}></img>
+                src={'images/tdesign_home.svg'}
+                alt='home'
+              />
             </ListItem>
           </ListItemButton>
           <ListItemButton>
             <ListItem>
               <img
                 className={classes.navIcon}
-                src={'images/icon-park-outline_browser.svg'}></img>
+                src={'images/icon-park-outline_browser.svg'}
+                alt='park'
+              />
             </ListItem>
           </ListItemButton>
           <ListItemButton>
             <ListItem>
               <img
                 className={classes.navIcon}
-                src={'images/icon-park-outline_brightness.svg'}></img>
+                src={'images/icon-park-outline_brightness.svg'}
+                alt='outline'
+              />
             </ListItem>
           </ListItemButton>
         </div>
         <div className={classes.bottom}>
           <Avatar src='/broken-image.jpg' />
         </div>
-
-        {/* 
-      <div className={classes.divider}>
-        <Divider classes={{ root: classes.divider }} />
-      </div> */}
       </List>
     );
   }
 
+  // desktop
   return (
     <List>
       <ListItemButton>
         <ListItem classes={{ root: classes.desktopNavItem }}>
           <img
             className={classes.navIcon}
-            src={'images/tdesign_home_black.svg'}></img>
+            src={'images/tdesign_home_black.svg'}
+            alt='home'
+          />
           Home
         </ListItem>
       </ListItemButton>
@@ -162,7 +163,9 @@ const DrawerList = () => {
         <ListItem classes={{ root: classes.desktopNavItem }}>
           <img
             className={classes.navIcon}
-            src={'images/icon-park-outline_browser_black.svg'}></img>
+            src={'images/icon-park-outline_browser_black.svg'}
+            alt='nav item 1'
+          />
           Navigation Item 1
         </ListItem>
       </ListItemButton>
@@ -170,15 +173,12 @@ const DrawerList = () => {
         <ListItem classes={{ root: classes.desktopNavItem }}>
           <img
             className={classes.navIcon}
-            src={'images/icon-park-outline_brightness_black.svg'}></img>
+            alt='nav item 2'
+            src={'images/icon-park-outline_brightness_black.svg'}
+          />
           Nav Item 2
         </ListItem>
       </ListItemButton>
-
-      {/* 
-      <div className={classes.divider}>
-        <Divider classes={{ root: classes.divider }} />
-      </div> */}
     </List>
   );
 };

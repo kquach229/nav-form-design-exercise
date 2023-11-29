@@ -7,8 +7,6 @@ import {
   TextField,
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@emotion/react';
 import DrawerList from './drawerList';
 
 const useStyles = makeStyles({
@@ -113,13 +111,11 @@ const useStyles = makeStyles({
   },
 });
 
-const Nav = ({ toggleDrawer, open }) => {
+const Nav = ({ toggleDrawer, open, isMobile, isTablet }) => {
   const classes = useStyles();
-  const theme = useTheme();
   const [showSearchbar, setShowSearchbar] = useState(false);
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
 
+  // mobile
   if (isMobile) {
     return (
       <div>
@@ -151,7 +147,7 @@ const Nav = ({ toggleDrawer, open }) => {
             onClose={toggleDrawer(false)}
             className={classes.drawerContainer}>
             <div className={classes.drawerPaper}>
-              <DrawerList />
+              <DrawerList isMobile={isMobile} isTablet={isTablet} />
             </div>
           </Drawer>
         </header>
@@ -159,7 +155,9 @@ const Nav = ({ toggleDrawer, open }) => {
     );
   }
 
+  // tablet
   if (isTablet) {
+    // set drawer width
     const tabletDrawerWidth = 100;
     return (
       <div>
@@ -179,7 +177,7 @@ const Nav = ({ toggleDrawer, open }) => {
             onClose={toggleDrawer(false)}
             className={classes.drawerContainer}>
             <div className={classes.tabletDrawerPaper}>
-              <DrawerList />
+              <DrawerList isMobile={isMobile} isTablet={isTablet} />
             </div>
           </Drawer>
         </header>
@@ -187,8 +185,9 @@ const Nav = ({ toggleDrawer, open }) => {
     );
   }
 
+  // if not mobile or tablet, return desktop form version
+  // drawer width
   const desktopDrawerWidth = 240;
-
   return (
     <div>
       <header className={classes.desktopNav}>
@@ -253,7 +252,7 @@ const Nav = ({ toggleDrawer, open }) => {
           onClose={toggleDrawer(false)}
           className={classes.drawerContainer}>
           <div className={classes.desktopDrawerPaper}>
-            <DrawerList />
+            <DrawerList isMobile={isMobile} isTablet={isTablet} />
           </div>
         </Drawer>
       </header>

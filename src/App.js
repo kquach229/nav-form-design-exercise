@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import FormComponent from './components/formComponent';
 
+// styles
 const useStyles = makeStyles({
   logo: {
     width: '44px',
@@ -60,9 +61,13 @@ const useStyles = makeStyles({
 });
 
 function App() {
+  // required for stylings/material ui syntax
   const classes = useStyles();
+
+  // state for drawer to open or close
   const [open, setOpen] = useState(false);
 
+  // handler for drawer toggle
   const toggleDrawer = (openState) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -70,14 +75,18 @@ function App() {
     setOpen(openState);
   };
 
+  
   let theme = createTheme();
+
+  // different breakpoints that return booleans
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
+    // pass the theme that allows for things like breakpoints to be used in styles object
     <ThemeProvider theme={theme}>
       <div className='App'>
-        <Nav toggleDrawer={toggleDrawer} open={open} />
+        <Nav isMobile={isMobile} isTablet={isTablet} toggleDrawer={toggleDrawer} open={open} />
         <div className={isMobile ? classes.bodyContainer : isTablet ? classes.tabletBodyContainer : classes.desktopBodyContainer}>
           <h1 className={classes.mainTitle}>Page Title</h1>
           <p className={classes.mainParagraph}>
