@@ -19,7 +19,6 @@ const useStyles = makeStyles({
     height: '76px',
     background: 'linear-gradient(to right, #272847 5%, #36097F)',
     padding: '16px',
-    width: '100%',
   },
   logo: {
     width: '44px',
