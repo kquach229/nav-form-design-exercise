@@ -116,7 +116,12 @@ const Nav = ({ toggleDrawer, open }) => {
     return (
       <div>
         <header className={classes.mobileNav}>
-          <AppBar elevation={0} className={classes.appBar}>
+          <AppBar
+            style={{
+              background: '#36097F',
+            }}
+            elevation={0}
+            className={classes.appBar}>
             <div className={classes.container}>
               <img
                 onClick={toggleDrawer(!open)}
