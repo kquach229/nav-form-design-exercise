@@ -35,12 +35,12 @@ const useStyles = makeStyles({
     top: 0,
     width: '100%',
     zIndex: 1100,
+    background: '#36097F',
   },
   drawerContainer: {
     color: '#fff',
     position: 'absolute',
     top: '76px',
-    zIndex: 1,
     width: '100%',
     zIndex: 99,
   },
@@ -78,6 +78,7 @@ const useStyles = makeStyles({
     background: '#F6F6FA',
     height: '100%',
     width: '100%',
+    marginTop: '110px',
   },
   desktopLogo: {
     width: '144.27px',
@@ -103,6 +104,13 @@ const useStyles = makeStyles({
     width: '200px',
     height: '50px',
   },
+  desktopNavRight: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  inputAdornment: {
+    cursor: 'pointer',
+  },
 });
 
 const Nav = ({ toggleDrawer, open }) => {
@@ -116,12 +124,7 @@ const Nav = ({ toggleDrawer, open }) => {
     return (
       <div>
         <header className={classes.mobileNav}>
-          <AppBar
-            style={{
-              background: '#36097F',
-            }}
-            elevation={0}
-            className={classes.appBar}>
+          <AppBar elevation={0} className={classes.appBar}>
             <div className={classes.container}>
               <img
                 onClick={toggleDrawer(!open)}
@@ -190,15 +193,13 @@ const Nav = ({ toggleDrawer, open }) => {
     <div>
       <header className={classes.desktopNav}>
         <AppBar elevation={0} className={classes.appBar}>
-          <div
-            className={classes.container}
-            style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div className={classes.container}>
             <img
               className={classes.desktopLogo}
               src='images/logo_desktop.svg'
               alt='Menu'
             />
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div className={classes.desktopNavRight}>
               {showSearchbar ? (
                 <TextField
                   sx={{
@@ -210,7 +211,7 @@ const Nav = ({ toggleDrawer, open }) => {
                     startAdornment: (
                       <InputAdornment position='start'>
                         <img
-                          style={{ cursor: 'pointer' }}
+                          className={classes.inputAdornment}
                           onClick={() =>
                             setShowSearchbar((prevState) => !prevState)
                           }
@@ -251,9 +252,7 @@ const Nav = ({ toggleDrawer, open }) => {
           open={open}
           onClose={toggleDrawer(false)}
           className={classes.drawerContainer}>
-          <div
-            style={{ marginTop: '110px' }}
-            className={classes.desktopDrawerPaper}>
+          <div className={classes.desktopDrawerPaper}>
             <DrawerList />
           </div>
         </Drawer>

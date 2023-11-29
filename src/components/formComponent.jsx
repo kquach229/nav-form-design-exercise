@@ -86,6 +86,10 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     color: '#27B968',
   },
+  tabletDesktopSubmitContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
 }));
 
 const FormComponent = ({ isMobile, isTablet }) => {
@@ -531,7 +535,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
             </RadioGroup>
           </span>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <div className={classes.tabletDesktopSubmitContainer}>
           <Button
             variant='contained'
             classes={{ contained: classes.submitButton }}
@@ -563,6 +567,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
         <InputLabel classes={{ root: classes.label }}>Text Field </InputLabel>
         <TextField
           placeholder='Text'
+          variant='outlined'
           sx={{
             input: {
               '&::placeholder': {
@@ -578,7 +583,6 @@ const FormComponent = ({ isMobile, isTablet }) => {
               root: classes.input,
             },
           }}
-          variant='outlined'
         />
       </div>
       <div className={classes.inputRow}>
@@ -720,7 +724,7 @@ const FormComponent = ({ isMobile, isTablet }) => {
           </RadioGroup>
         </span>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <div className={classes.tabletDesktopSubmitContainer}>
         <Button
           variant='contained'
           classes={{ contained: classes.submitButton }}
